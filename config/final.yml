@@ -1,5 +1,8 @@
 ---
 blobstore:
-  provider: local
+  provider: s3
   options:
-    blobstore_path: /tmp/blobstore
+    bucket_name: BOSH
+    access_key_id: READONLY_AWS_ACCESS_KEY
+    secret_access_key: READONLY_AWS_SECRET_ACCESS_KEY
+    encryption_key: PERSONAL_RANDOM_KEY
