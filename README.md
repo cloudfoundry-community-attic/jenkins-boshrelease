@@ -14,7 +14,30 @@ cd jenkins-boshrelease
 bosh upload release releases/jenkins-1.yml
 ```
 
-Now edit the `examples/aws.yml` or `examples/openstack*.yml` with your bosh' UUID (run `bosh status` to get it).
+With your AWS or OpenStack account:
+
+* acquire a public IP address, say `1.2.3.4`
+* create a security group with ports 22 & 80 open, say `jenkins`
+
+Run `bosh status` to obtain:
+
+* `UUID` for the YAML file below
+
+Create a simple initial deployment file, say `jenkins.yml`:
+
+``` yaml
+---
+name: myjenkins
+director_uuid: UUID
+networks: {}
+properties:
+  jenkins:
+    ip_address: 1.2.3.4
+    security_group: jenkins
+    persistent_disk: 4096
+    password: jEnKins
+```
+
 
 Finally, target and deploy. For deployment to a bosh running on aws:
 
