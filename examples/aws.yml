@@ -1,0 +1,55 @@
+---
+name: jenkins
+director_uuid: UUID
+releases:
+- name: jenkins
+  version: latest
+compilation:
+  workers: 3
+  network: default
+  reuse_compilation_vms: true
+  cloud_properties:
+    instance_type: m1.medium
+update:
+  canaries: 1
+  canary_watch_time: 30000-300000
+  update_watch_time: 30000-300000
+  max_in_flight: 4
+  max_errors: 1
+networks:
+- name: default
+  type: dynamic
+  cloud_properties:
+    security_groups:
+    - default
+- name: vip_network
+  type: vip
+  cloud_properties:
+    security_groups:
+    - default
+resource_pools:
+- name: small
+  network: default
+  size: 1
+  stemcell:
+    name: bosh-stemcell
+    version: latest
+  cloud_properties:
+    instance_type: m1.small
+jobs:
+- name: jenkins
+  template:
+  - jenkins
+  instances: 1
+  resource_pool: small
+  networks:
+  - name: default
+    default:
+    - dns
+    - gateway
+  persistent_disk: 4096
+properties:
+  jenkins:
+    admin:
+      password: jenkins
+

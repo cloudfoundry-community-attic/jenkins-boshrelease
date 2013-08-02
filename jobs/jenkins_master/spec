@@ -1,0 +1,20 @@
+---
+name: jenkins_master
+packages:
+- jenkins
+- jre
+templates:
+  bin/jenkins_master_ctl: bin/jenkins_master_ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  jenkins.admin.password:
+    description: Admin user password
+  jenkins.server.internal_http_port:
+    description: "Internal http port between nginx & jenkins"
+    default: 8088
+  jenkins.server.ajp13_port:
+    description: AJP13 protocal port
+    default: 8009
