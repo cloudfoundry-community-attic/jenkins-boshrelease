@@ -1,6 +1,5 @@
 ---
 name: jenkins
-dependencies:
-- jre
+dependencies: [] # no compile dependencies
 files:
 - jenkins/jenkins-1.509.2.war
