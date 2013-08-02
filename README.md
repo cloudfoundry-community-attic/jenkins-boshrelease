@@ -23,7 +23,7 @@ Run `bosh status` to obtain:
 
 * `UUID` for the YAML file below
 
-Create a simple initial deployment file, say `jenkins.yml`:
+Create a simple initial deployment file, say `~/deployments/jenkins.yml`:
 
 ``` yaml
 ---
@@ -42,7 +42,8 @@ properties:
 Finally, target and deploy. For deployment to a bosh running on aws:
 
 ```
-bosh deployment examples/aws.yml
+bosh deployment ~/deployments/jenkins.yml
+bosh diff templates/v1/deployment_file.yml.erb
 bosh deploy
 ```
 
