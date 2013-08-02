@@ -3,3 +3,9 @@ check process jenkins_master
   start program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_ctl '/var/vcap/jobs/jenkins_master/bin/jenkins_master_ctl start'" with timeout 120 seconds
   stop program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_ctl '/var/vcap/jobs/jenkins_master/bin/jenkins_master_ctl stop'"
   group vcap
+
+check process nginx_jenkins_master
+  with pidfile /var/vcap/sys/run/jenkins_master/nginx.pid
+  start program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_nginx_ctl '/var/vcap/jobs/jenkins_master/bin/nginx_ctl start'"
+  stop program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_nginx_ctl '/var/vcap/jobs/jenkins_master/bin/nginx_ctl stop'"
+  group vcap

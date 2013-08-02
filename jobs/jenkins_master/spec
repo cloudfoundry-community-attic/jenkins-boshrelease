@@ -3,12 +3,16 @@ name: jenkins_master
 packages:
 - jenkins
 - jre
+- nginx
 templates:
   bin/jenkins_master_ctl: bin/jenkins_master_ctl
   bin/monit_debugger: bin/monit_debugger
+  bin/nginx_ctl: bin/nginx_ctl
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  config/nginx.conf.erb: config/nginx.conf
+  config/mime.types: config/mime.types
 properties:
   jenkins.admin.password:
     description: Admin user password

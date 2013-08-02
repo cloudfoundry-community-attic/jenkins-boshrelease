@@ -1,0 +1,58 @@
+user  vcap vcap;
+
+error_log /var/vcap/sys/log/jenkins_master/nginx.error.log;
+pid       /var/vcap/sys/run/jenkins_master/nginx.pid;
+
+events {
+  worker_connections  8192;
+  use epoll;
+}
+
+http {
+  include       mime.types;
+  default_type  text/html;
+  server_tokens off;
+
+  log_format main  '$host - [$time_local] '
+                   '"$request" $status $bytes_sent '
+                   '"$http_referer" "$http_user_agent" '
+                   '$proxy_add_x_forwarded_for response_time:$upstream_response_time';
+
+  access_log  /var/vcap/sys/log/jenkins_master/nginx.access.log  main;
+
+  sendfile             on;  #enable use of sendfile()
+  tcp_nopush           on;
+  tcp_nodelay          on;  #disable nagel's algorithm
+
+  keepalive_timeout  75 20; #inherited from router
+
+  client_max_body_size 256M; #already enforced upstream/but doesn't hurt.
+
+  upstream jenkins_master {
+    server localhost:<%= p("jenkins.server.internal_http_port") %>;
+  }
+
+  server {
+    listen    80;
+    server_name  _;
+    server_name_in_redirect off;
+    proxy_send_timeout 300;
+    proxy_read_timeout 300;
+
+    # proxy and log all traffic
+    location / {
+      access_log /var/vcap/sys/log/jenkins_master/nginx.access.log  main;
+      proxy_pass              http://localhost:<%= p("jenkins.server.internal_http_port") %>;
+      proxy_set_header        Host $host;
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_connect_timeout   150;
+      proxy_send_timeout      100;
+      proxy_read_timeout      100;
+      proxy_buffers           4 32k;
+      client_max_body_size    8m;
+      client_body_buffer_size 128k;
+    }
+
+  }
+}
