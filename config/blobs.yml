@@ -9,3 +9,13 @@ jenkins/jenkins-1.509.2.war:
   sha: !binary |-
     N2Q1OTVkZGQ4NTdmOTk5Yjc3MGIwZWMwMmI5YjBlODhjMGIyZTE3YQ==
   size: 53863401
+nginx/nginx-1.4.2.tar.gz:
+  object_id: fefc993f-fca8-4cbc-8e62-fb59a0842c81
+  sha: !binary |-
+    OGYwMDZkYzc3Mzg0MGI2NjI0YTEzN2E1ODRmZjg4NTBkNTE1NWUzZg==
+  size: 767688
+nginx/pcre-8.33.tar.gz:
+  object_id: 3ba61134-3e47-4c1f-bd4d-c72d324c9ab7
+  sha: !binary |-
+    YmNlYWZiNTM1NTMyMTlkYWQyNTkzYmI4YWYwNmRhNGQwN2ZkMzgyOA==
+  size: 1889401
