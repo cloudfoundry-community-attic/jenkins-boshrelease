@@ -1,50 +1,58 @@
-# BOSH Release for jenkins
+# Bosh release for Jenkins
 
-## Release to your BOSH
+One of the fastest ways to get [Jenkins](http://jenkins-ci.org/) running on any infrastructure is too deploy this bosh release.
 
-To create and upload this release to your BOSH:
+## Usage
+
+To use this bosh release, first upload it to your bosh:
 
 ```
 bosh target BOSH_URL
-git clone git@github.com:drnic/jenkins-boshrelease.git
+bosh login
+git clone git@github.com:cloudfoundry-community/jenkins-boshrelease.git
 cd jenkins-boshrelease
-bosh create release
-# blobs are automatically downloaded
-# name it 'cassandra-dev' or something unique to your bosh
-bosh upload release
+bosh upload release releases/jenkins-1.yml
 ```
 
-### Finalizing a release
+Now edit the `examples/aws.yml` or `examples/openstack*.yml` with your bosh' UUID (run `bosh status` to get it).
 
-If you create a final release `bosh create release --final`, you must immediately create a new development release. Yeah, this is a bug I guess.
-
-```
-[outside vagrant]
-bosh create release --final
-bosh create release
-
-[inside vagrant as vcap user]
-/vagrant/scripts/update examples/default.yml
-```
-
-
-### Alternate configurations
-
-This BOSH release is configurable during deployment with properties. 
-
-Please maintain example scenarios in the `examples/` folder.
-
-To switch between example scenarios, run `sm bosh-solo update examples/FILE.yml` with a different example scenario.
-
-## Uploading to BOSH
-
-Once you have a BOSH release that you like, you can upload it to BOSH and deploy it.
+Finally, target and deploy. For deployment to a bosh running on aws:
 
 ```
-bosh upload release
-bosh deployment path/to/manifest.yml
+bosh deployment examples/aws.yml
 bosh deploy
 ```
 
-Example `properties` for your `manifest.yml` can be taken from the examples in `examples\`
+If you deploy more than one instance in a job it assumes that you want replication, and you need to specify the IP address of the master node in your deployment manifest.
+
+## Development
+
+
+## Create new final release
+
+To create a new final release you need to get read/write API credentials to the [@cloudfoundry-community](https://github.com/cloudfoundry-community) s3 account.
+
+Please email [Dr Nic Williams](mailto:&#x64;&#x72;&#x6E;&#x69;&#x63;&#x77;&#x69;&#x6C;&#x6C;&#x69;&#x61;&#x6D;&#x73;&#x40;&#x67;&#x6D;&#x61;&#x69;&#x6C;&#x2E;&#x63;&#x6F;&#x6D;) and he will create unique API credentials for you.
+
+Create a `config/private.yml` file with the following contents:
+
+``` yaml
+---
+blobstore:
+  s3:
+    access_key_id:     ACCESS
+    secret_access_key: PRIVATE
+```
+
+You can now create final releases for everyone to enjoy!
+
+```
+bosh create release
+# test this dev release
+git commit -m "updated jenkins"
+bosh create release --final
+git commit -m "creating vXYZ release"
+git tag vXYZ
+git push origin master --tags
+```
 
