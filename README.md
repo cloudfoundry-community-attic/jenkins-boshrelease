@@ -2,6 +2,8 @@
 
 One of the fastest ways to get [Jenkins](http://jenkins-ci.org/) running on any infrastructure is too deploy this bosh release.
 
+<img src="https://www.evernote.com/shard/s3/sh/7b72031f-d254-4d4a-b90c-56636020f25c/177fbe83e857be5fca8d306cfb4aa88a/deep/0/Dashboard%20%5BJenkins%5D.png" />
+
 ## Usage
 
 To use this bosh release, first upload it to your bosh:
