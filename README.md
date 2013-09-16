@@ -16,21 +16,35 @@ cd jenkins-boshrelease
 bosh upload release releases/jenkins-1.yml
 ```
 
-With your AWS or OpenStack account:
+You now need a deployment file. This is different for each use case.
+
+### bosh-lite/warden deployments
+
+Copy the `examples/try_me.yml` to say `~/deployments/bosh-lite-jenkins.yml`.
+
+Then target it, update it with the bosh-lite/warden template, and deploy it:
+
+```
+bosh deployment ~/deployments/bosh-lite-jenkins.yml
+bosh -n diff templates/v1/warden_deployment_file.yml.erb
+bosh -n deploy
+```
+
+You can now view Jenkins in your browser at http://10.244.1.2/
+
+### AWS or OpenStack deployments
+
+There are three additional manual steps than above:
 
 * acquire a public IP address, say `1.2.3.4`
 * create a security group with ports 22 & 80 open, say `jenkins`
-
-Run `bosh status` to obtain:
-
-* `UUID` for the YAML file below
 
 Create a simple initial deployment file, say `~/deployments/jenkins.yml`:
 
 ``` yaml
 ---
 name: myjenkins
-director_uuid: UUID
+director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>
 networks: {}
 properties:
   jenkins:
@@ -41,17 +55,13 @@ properties:
 ```
 
 
-Finally, target and deploy. For deployment to a bosh running on aws:
+Then target it, update it with the simple template, and deploy it:
 
 ```
 bosh deployment ~/deployments/jenkins.yml
-bosh diff templates/v1/deployment_file.yml.erb
-bosh deploy
+bosh -n diff templates/v1/simple_deployment_file.yml.erb
+bosh -n deploy
 ```
-
-If you deploy more than one instance in a job it assumes that you want replication, and you need to specify the IP address of the master node in your deployment manifest.
-
-## Development
 
 
 ## Create new final release

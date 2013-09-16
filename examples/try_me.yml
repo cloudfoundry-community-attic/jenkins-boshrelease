@@ -1,0 +1,26 @@
+# This is a simple deployment example for bosh-lite.
+#
+# Upload Jenkins release:
+#
+#     $ bosh upload release releases/jenkins-1.yml
+#
+# Target this deployment file:
+#
+#     $ bosh deployment examples/try_me.yml
+#
+# Then apply the desired template:
+#
+#     $ bosh diff templates/v1/warden_deployment_file.yml.erb # for bosh-lite/warden
+#
+# Then deploy:
+#
+#     $ bosh deploy
+#
+# For bosh-lite/warden: Now visit http://10.244.1.2/ in your browser.
+---
+name: jenkins
+director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>
+networks: {}
+properties:
+  jenkins:
+    password: jEnKins
