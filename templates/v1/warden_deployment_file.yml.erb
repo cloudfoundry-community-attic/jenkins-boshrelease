@@ -23,7 +23,7 @@ name            = find("name")
 common_password = find("properties.jenkins.password")
 -%>
 name: <%= name %>
-director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>
+director_uuid: <%= find("director_uuid") %>
 
 releases:
 - name: jenkins

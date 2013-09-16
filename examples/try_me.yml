@@ -1,4 +1,4 @@
-# Provide your attributes below.
+# This is a simple deployment example for bosh-lite.
 #
 # Upload Jenkins release:
 #
@@ -11,7 +11,6 @@
 # Then apply the desired template:
 #
 #     $ bosh diff templates/v1/warden_deployment_file.yml.erb # for bosh-lite/warden
-#     $ bosh diff templates/v1/simple_deployment_file.yml.erb
 #
 # Then deploy:
 #
