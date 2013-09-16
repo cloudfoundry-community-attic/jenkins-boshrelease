@@ -23,17 +23,17 @@ name            = find("name")
 common_password = find("properties.jenkins.password")
 -%>
 name: <%= name %>
-director_uuid: <%= find("director_uuid") %>
+director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>
 
 releases:
 - name: jenkins
   version: latest
+
 compilation:
-  workers: 3
-  network: default
-  reuse_compilation_vms: true
-  cloud_properties:
-    instance_type: m1.medium
+  workers: 8
+  network: compile
+  cloud_properties: {}
+
 update:
   canaries: 1
   canary_watch_time: 30000-60000
@@ -69,6 +69,7 @@ networks:
       name: random
 <%% end %>
 
+
 resource_pools:
 - name: warden
   network: default
@@ -84,6 +85,10 @@ jobs:
   - jenkins_master
   instances: 1
   resource_pool: warden
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.1.2
 
 properties:
   jenkins:

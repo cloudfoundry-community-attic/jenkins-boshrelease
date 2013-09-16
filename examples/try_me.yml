@@ -1,5 +1,8 @@
 # Provide your attributes below.
 #
+# Upload Jenkins release:
+#
+#     $ bosh upload release releases/jenkins-1.yml
 #
 # Target this deployment file:
 #
@@ -7,14 +10,14 @@
 #
 # Then apply the desired template:
 #
+#     $ bosh diff templates/v1/warden_deployment_file.yml.erb # for bosh-lite/warden
 #     $ bosh diff templates/v1/simple_deployment_file.yml.erb
-#     $ bosh diff templates/v1/warden_deployment_file.yml.erb
 #
 # Then deploy:
 #
 #     $ bosh deploy
 #
-# For Warden, to access the VMs, first "vagrant ssh".
+# For bosh-lite/warden: Now visit http://10.244.1.2/ in your browser.
 ---
 name: jenkins
 director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>
