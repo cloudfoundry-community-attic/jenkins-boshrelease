@@ -31,7 +31,7 @@ releases:
 
 compilation:
   workers: 8
-  network: compile
+  network: default
   cloud_properties: {}
 
 update:
@@ -41,33 +41,33 @@ update:
   max_in_flight: 4
 
 networks:
-- name: compile
-  subnets:
-<%% (0..63).each_with_index.map do |i| %>
-  - range: 10.244.0.<%%= i*4 %>/30
-    reserved:
-      - 10.244.0.<%%= i*4 + 1 %>
-    cloud_properties:
-      name: random
-<%% end %>
 - name: default
   subnets:
-<%% (0..63).each_with_index.map do |i| %>
-  - range: 10.244.1.<%%= i*4 %>/30
+<% (0..28).each_with_index do |i| %>
+  - range: 10.244.0.<%= i*4 %>/30
     reserved:
-      - 10.244.1.<%%= i*4 + 1 %>
+      - 10.244.0.<%= i*4 + 1 %>
     static:
-      - 10.244.1.<%%= i*4 + 2 %>
+      - 10.244.0.<%= i*4 + 2 %>
     cloud_properties:
       name: random
-<%% end
-(0..63).each_with_index.map do |i| %>
-  - range: 10.244.2.<%%= i*4 %>/30
+<% end %>
+<% (29..61).each_with_index do |i| %>
+  - range: 10.244.0.<%= i*4 %>/30
     reserved:
-      - 10.244.2.<%%= i*4 + 1 %>
+      - 10.244.0.<%= i*4 + 1 %>
     cloud_properties:
       name: random
-<%% end %>
+<% end %>
+<% (62..63).each_with_index do |i| %>
+  - range: 10.244.0.<%= i*4 %>/30
+    reserved:
+      - 10.244.0.<%= i*4 + 1 %>
+    static:
+      - 10.244.0.<%= i*4 + 2 %>
+    cloud_properties:
+      name: random
+<% end %>
 
 
 resource_pools:
@@ -88,7 +88,7 @@ jobs:
   networks:
   - name: default
     static_ips:
-    - 10.244.1.2
+    - 10.244.0.22
 
 properties:
   jenkins:
