@@ -6,6 +6,7 @@ set -u # report the usage of uninitialized variables
 # Setup env vars and folders for the webapp_ctl script
 source /var/vcap/jobs/jenkins_master/helpers/ctl_setup.sh 'jenkins_master'
 
+export PATH=/var/vcap/packages/git/bin:$PATH
 export LANG=en_US.UTF-8
 export JENKINS_HOME=/var/vcap/store/jenkins_master
 java_binary=/var/vcap/packages/jre/bin/java

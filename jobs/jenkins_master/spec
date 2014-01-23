@@ -4,6 +4,7 @@ packages:
 - jenkins
 - jre
 - nginx
+- git
 templates:
   bin/jenkins_master_ctl: bin/jenkins_master_ctl
   bin/monit_debugger: bin/monit_debugger
