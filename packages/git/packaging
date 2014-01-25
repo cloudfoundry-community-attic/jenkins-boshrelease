@@ -5,4 +5,10 @@ set -u # report the usage of uninitialized variables
 # $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 
-cp jenkins/jenkins-1.532.1.war $BOSH_INSTALL_TARGET/jenkins.war
+BUILD_FLAGS="NO_TCLTK=Yes NO_EXPAT=Yes"
+
+tar xzf git/git-1.8.5.3.tar.gz
+
+cd git-1.8.5.3
+make prefix=${BOSH_INSTALL_TARGET} ${BUILD_FLAGS} all 
+make prefix=${BOSH_INSTALL_TARGET} ${BUILD_FLAGS} install

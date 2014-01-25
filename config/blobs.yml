@@ -1,21 +1,25 @@
 ---
 java/jre-1.6.0_24-x86_64.tar.gz:
   object_id: 1f403bc7-0cc4-4638-b777-0eeb916837ac
-  sha: !binary |-
-    MDUxMWQ4MzNkZmQ5ODI1YTI2YzE4ZTlkNjg1ZGU2NGFjMDE1MWU4NQ==
+  sha: 0511d833dfd9825a26c18e9d685de64ac0151e85
   size: 34453414
 jenkins/jenkins-1.509.2.war:
   object_id: a8234a26-eaaa-4134-8db7-c80e0d300bbf
-  sha: !binary |-
-    N2Q1OTVkZGQ4NTdmOTk5Yjc3MGIwZWMwMmI5YjBlODhjMGIyZTE3YQ==
+  sha: 7d595ddd857f999b770b0ec02b9b0e88c0b2e17a
   size: 53863401
 nginx/nginx-1.4.2.tar.gz:
   object_id: fefc993f-fca8-4cbc-8e62-fb59a0842c81
-  sha: !binary |-
-    OGYwMDZkYzc3Mzg0MGI2NjI0YTEzN2E1ODRmZjg4NTBkNTE1NWUzZg==
+  sha: 8f006dc773840b6624a137a584ff8850d5155e3f
   size: 767688
 nginx/pcre-8.33.tar.gz:
   object_id: 3ba61134-3e47-4c1f-bd4d-c72d324c9ab7
-  sha: !binary |-
-    YmNlYWZiNTM1NTMyMTlkYWQyNTkzYmI4YWYwNmRhNGQwN2ZkMzgyOA==
+  sha: bceafb53553219dad2593bb8af06da4d07fd3828
   size: 1889401
+git/git-1.8.5.3.tar.gz:
+  object_id: 671fde4d-aac0-414c-a487-14aa531c4e9d
+  sha: f876667ed376fdbe74c086915f2800169a336850
+  size: 4741164
+jenkins/jenkins-1.532.1.war:
+  object_id: 0936eb60-0ebc-4ae1-a366-f438cf535421
+  sha: cc5394935afbfddc6c89ebea5bfbe9a0bbd6523a
+  size: 65405459
