@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://production.cf.rubygems.org/
   specs:
     aws-sdk (1.8.5)
       json (~> 1.4)
