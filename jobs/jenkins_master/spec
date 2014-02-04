@@ -5,6 +5,8 @@ packages:
 - jre
 - nginx
 - git
+- bosh-cli
+- ruby
 templates:
   bin/jenkins_master_ctl: bin/jenkins_master_ctl
   bin/monit_debugger: bin/monit_debugger

@@ -23,3 +23,27 @@ jenkins/jenkins-1.532.1.war:
   object_id: 0936eb60-0ebc-4ae1-a366-f438cf535421
   sha: cc5394935afbfddc6c89ebea5bfbe9a0bbd6523a
   size: 65405459
+cf-cli/cf-cli-v6.0.0-beta2.tar.gz:
+  object_id: 89b1ac96-f8f9-46f5-aed4-acf30978225b
+  sha: fb05674cd54bc7d979635e2c4cdebc877c3e8371
+  size: 2304476
+golang/go1.1.2.linux-amd64-yacc-shaved.tar.gz:
+  object_id: 2ddf5fd6-35e1-488d-8d07-3230f301cae8
+  sha: 02aa9f47b95ce012b5702daf41d3ff4b781ac30e
+  size: 41768327
+libyaml/yaml-0.1.4.tgz:
+  object_id: 36eea1f3-7402-403f-ac77-4294b34ad646
+  sha: e0e5e09192ab10a607e3da2970db492118f560f2
+  size: 471759
+ruby/bundler-1.2.1.gem:
+  object_id: 8ece770e-4d14-4e61-bdff-3af156bfad30
+  sha: 0cbe6ad7a41f064d6c11c1058465fffb1bd58069
+  size: 226816
+ruby/ruby-1.9.3-p484.tar.gz:
+  object_id: 088013ef-4486-4d20-b76c-86bfa6031ce2
+  sha: 6ae80f424968b5ce661ee9b2bee1c21adc9ee67c
+  size: 12576996
+ruby/rubygems-1.8.24.tgz:
+  object_id: 04eb903d-b65d-482c-be39-45b40b93e1a4
+  sha: 30f27047e74f7943117736a0d3e224994fee0905
+  size: 380101

@@ -1,0 +1,16 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+
+# Setup env
+export PATH=/var/vcap/packages/golang/bin:$PATH
+export GOROOT=/var/vcap/packages/golang
+
+tar xzf cf-cli/cf-cli-v6.0.0-beta2.tar.gz
+
+./bin/build
+
+cp out/gcf $BOSH_INSTALL_TARGET 
