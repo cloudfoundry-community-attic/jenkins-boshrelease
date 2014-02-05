@@ -1,0 +1,53 @@
+---
+packages:
+- name: bosh-cli
+  version: 1
+  sha1: 9097cba95b07423c12b5df2b4c8db5a0a7708de0
+  fingerprint: 419976f91953bdab37ce27472bfccc53d5566996
+  dependencies:
+  - ruby
+- name: cf-cli
+  version: 1
+  sha1: b8bec98b12ce66afef8d5b1833f9b9fb988eed2e
+  fingerprint: a098d425d2c8a5ed5b9875f57b9c8c2d038af8a0
+  dependencies: []
+- name: git
+  version: 1
+  sha1: 265137f002ad60af8b1cb551ee204e774ec6abf5
+  fingerprint: 495701a36b8f42f850a46e89c8a60cfd681083e1
+  dependencies: []
+- name: jenkins
+  version: 2
+  sha1: e22ac1f76c5b6802e4a8062c3a98a9520101c013
+  fingerprint: 302caba42402770ff3794549d5d0c4ec98675e7f
+  dependencies: []
+- name: jre
+  version: 1
+  sha1: e76569a3f53a702903a5cb5955a11530419dbe59
+  fingerprint: 1fae8624f64c272dc734986f95945c0972e426e3
+  dependencies: []
+- name: libyaml
+  version: 1
+  sha1: 70013dc7bb5d45a94aad91c050162be1b53880e8
+  fingerprint: 2c8350bc6b60b7c50f2b9d7d19ed02e19b72bf38
+  dependencies: []
+- name: nginx
+  version: 1
+  sha1: 10b1eaed5b505260633a7c3b38642bad5d44f255
+  fingerprint: 26d885e63185483dd70859bed5a0f14232f23e18
+  dependencies: []
+- name: ruby
+  version: 1
+  sha1: 802975e07183d41ac2ee9aacc54c7110ebdcdc44
+  fingerprint: a0284f3efbbc4318e0a9bb57e192443643de32b1
+  dependencies:
+  - libyaml
+jobs:
+- name: jenkins_master
+  version: 3
+  fingerprint: ad3d703afe916c2a07f4b4e4a2df51f5beb9e99c
+  sha1: f596367422b3efe30e7f377fc8cf41d1285517dc
+commit_hash: 0ca4b6a0
+uncommitted_changes: true
+name: jenkins
+version: 3
