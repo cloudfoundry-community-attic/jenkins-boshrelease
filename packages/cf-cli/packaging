@@ -5,12 +5,11 @@ set -u # report the usage of uninitialized variables
 # $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 
-# Setup env
-export PATH=/var/vcap/packages/golang/bin:$PATH
-export GOROOT=/var/vcap/packages/golang
+mkdir -p $BOSH_INSTALL_TARGET/bin
 
-tar xzf cf-cli/cf-cli-v6.0.0-beta2.tar.gz
+#this is already compiled
+gunzip -c cf-cli/cf-cli_amd64-v6.0.0-bin.gz > $BOSH_INSTALL_TARGET/bin/cf
+chmod +x $BOSH_INSTALL_TARGET/bin/cf
 
-./bin/build
-
-cp out/gcf $BOSH_INSTALL_TARGET 
+# Backwards compatability - this used to be called gcf
+ln -s $BOSH_INSTALL_TARGET/bin/cf $BOSH_INSTALL_TARGET/bin/gcf

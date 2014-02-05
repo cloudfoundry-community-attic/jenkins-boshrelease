@@ -1,6 +1,5 @@
 ---
 name: cf-cli
-dependencies:
-  - golang
+dependencies: []
 files:
-  - cf-cli/cf-cli-v6.0.0-beta2.tar.gz
+  - cf-cli/cf-cli_amd64-v6.0.0-bin.gz

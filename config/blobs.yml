@@ -47,3 +47,11 @@ ruby/rubygems-1.8.24.tgz:
   object_id: 04eb903d-b65d-482c-be39-45b40b93e1a4
   sha: 30f27047e74f7943117736a0d3e224994fee0905
   size: 380101
+cf-cli/cf-cli-v6.0.0.tar.gz:
+  object_id: c3978518-1b5e-48e9-90c7-1e5278dd0868
+  sha: 5abec04d5fccb2f22da93adc742a6aed3183c89d
+  size: 1861319
+cf-cli/cf-cli_amd64-v6.0.0-bin.gz:
+  object_id: 617c5abc-3406-42f8-92ea-2a2f914ac799
+  sha: 777a214708180d5a2dc380b5828dc0a69556702a
+  size: 3386095
