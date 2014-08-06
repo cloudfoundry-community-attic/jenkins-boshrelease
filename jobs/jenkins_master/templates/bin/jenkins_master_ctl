@@ -24,6 +24,7 @@ case $1 in
 
     flags=(
       -Djava.io.tmpdir="$TMPDIR"
+      <%= p('jenkins_master.java_options').join(' ') %>
       -jar $jenkins_war
       --argumentsRealm.passwd.$ADMIN_USER=$ADMIN_PASSWORD
       --argumentsRealm.roles.$ADMIN_USER=admin

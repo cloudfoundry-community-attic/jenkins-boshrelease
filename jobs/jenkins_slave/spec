@@ -28,3 +28,6 @@ properties:
   jenkins_slave.password:
     default: ~
     description: "The Jenkins username for authentication"
+  jenkins_slave.java_options:
+    default: []
+    description: "An array of additional options to pass to Java when starting the process"

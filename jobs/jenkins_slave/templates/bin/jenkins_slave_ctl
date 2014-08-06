@@ -24,6 +24,7 @@ case $1 in
 
     exec chpst -u vcap:vcap \
          /var/vcap/packages/jre/bin/java \
+         <%= p('jenkins_slave.java_options').join(' ') %> \
          -jar /var/vcap/packages/jenkins-swarm-client/swarm-client.jar \
          -executors "$EXECUTORS" \
          -fsroot "$TMPDIR" \

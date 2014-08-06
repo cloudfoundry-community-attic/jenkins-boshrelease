@@ -23,3 +23,6 @@ properties:
   jenkins.server.ajp13_port:
     description: AJP13 protocal port
     default: 8009
+  jenkins_master.java_options:
+    default: []
+    description: "An array of additional options to pass to Java when starting the process"

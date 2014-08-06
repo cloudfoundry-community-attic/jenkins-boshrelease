@@ -1,6 +1,6 @@
 check process jenkins_master
   with pidfile /var/vcap/sys/run/jenkins_master/jenkins_master.pid
-  start program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_ctl '/var/vcap/jobs/jenkins_master/bin/jenkins_master_ctl start'" with timeout 120 seconds
+  start program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_ctl '/var/vcap/jobs/jenkins_master/bin/jenkins_master_ctl start'"
   stop program "/var/vcap/jobs/jenkins_master/bin/monit_debugger jenkins_master_ctl '/var/vcap/jobs/jenkins_master/bin/jenkins_master_ctl stop'"
   group vcap
 
