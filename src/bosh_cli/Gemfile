@@ -1,4 +1,0 @@
-source 'https://rubygems.org'
-
-gem "net-ssh-gateway", "~> 1.1.0"
-gem "bosh_cli", "~> 1.1868.0"
