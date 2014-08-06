@@ -2,4 +2,5 @@
 name: jenkins
 dependencies: [] # no compile dependencies
 files:
-- jenkins/jenkins-1.532.1.war
+# http://mirrors.jenkins-ci.org/war-stable/1.565.1/jenkins.war
+- jenkins/jenkins-1.565.1.war
