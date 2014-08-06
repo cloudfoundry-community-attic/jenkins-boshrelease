@@ -81,8 +81,9 @@ resource_pools:
 
 jobs:
 - name: jenkins_master
-  template:
-  - jenkins_master
+  templates:
+  - release: jenkins
+    name: jenkins_master
   instances: 1
   resource_pool: warden
   networks:
