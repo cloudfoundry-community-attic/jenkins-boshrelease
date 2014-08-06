@@ -41,6 +41,11 @@ case $1 in
     #   )
     # fi
 
+    # pre-install the swarm plugin; user must maintain future upgrades
+    if [ ! -f $JENKINS_HOME/plugins/swarm ] ; then
+      cp /var/vcap/packages/jenkins/plugin-swarm.hpi $JENKINS_HOME/plugins/swarm.hpi
+    fi
+
     exec chpst -u vcap:vcap $java_binary ${flags[*]} \
          >>$LOG_DIR/$JOB_NAME.stdout.log \
          2>>$LOG_DIR/$JOB_NAME.stderr.log

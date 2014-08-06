@@ -1,0 +1,6 @@
+---
+name: jenkins-swarm-client
+dependencies: [] # no compile dependencies
+files:
+# http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/1.16/swarm-client-1.16-jar-with-dependencies.jar
+- jenkins-swarm-client/swarm-client-1.16-jar-with-dependencies.jar

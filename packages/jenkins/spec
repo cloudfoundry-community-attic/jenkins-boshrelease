@@ -4,3 +4,5 @@ dependencies: [] # no compile dependencies
 files:
 # http://mirrors.jenkins-ci.org/war-stable/1.565.1/jenkins.war
 - jenkins/jenkins-1.565.1.war
+# http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm/1.16/swarm-1.16.hpi
+- jenkins/plugin-swarm-1.16.hpi
