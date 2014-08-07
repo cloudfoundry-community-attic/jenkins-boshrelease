@@ -1,0 +1,15 @@
+---
+# Docker has an issue (https://github.com/docker/docker/issues/1470) where it
+# doesn't fully respect the resolv.conf dns servers and if the first dns server
+# fails, it doesn't retry other servers. This script will try to switch
+# consecutive nameservers to ensure the first one will resolve index.docker.io.
+# This workaround method is relatively fragile on the environment, although the
+# patching script is fairly stable. Upstream docker is apparently fixed, but
+# not yet released, nor has it made it into our dependency pipelines. We
+# heavily use Docker in our Jenkins deployments, so we've committed it here.
+name: bugfix_docker_resolvconf
+packages: []
+templates:
+  bin/control: bin/control
+  bin/rewrite-resolvconf: bin/rewrite-resolvconf
+properties: {}
