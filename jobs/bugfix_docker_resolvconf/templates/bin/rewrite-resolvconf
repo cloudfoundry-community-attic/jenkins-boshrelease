@@ -1,0 +1,32 @@
+#!/var/vcap/bosh/bin/ruby
+
+require 'resolv'
+
+resolv = $stdin.read
+
+begin
+  # paired nameservers are assumed to be: bosh-dns network-dns
+  resolv.match /^nameserver ([0-9\.]+)\nnameserver ([0-9\.]+)$/ do | m |
+    first = Resolv::DNS.new(:nameserver => [ m[1] ])
+    begin
+      first.getaddress 'index.docker.io'
+    rescue Resolv::ResolvError
+      second = Resolv::DNS.new(:nameserver => [ m[2] ])
+
+      begin
+        second.getaddress 'index.docker.io'
+
+        # first is bad, second is good so we need to reverse them
+        resolv.gsub! /^nameserver #{m[1]}\nnameserver #{m[2]}$/, "nameserver #{m[2]}\nnameserver #{m[1]}"
+
+        break
+      rescue Resolv::ResolvError
+        # oh well
+      end
+    end
+  end
+rescue Exception
+  # play it safe and still dump resolv
+end
+
+$stdout.puts resolv

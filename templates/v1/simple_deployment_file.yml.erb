@@ -65,8 +65,9 @@ resource_pools:
     instance_type: m1.small
 jobs:
 - name: jenkins_master
-  template:
-  - jenkins_master
+  templates:
+  - release: jenkins
+    name: jenkins_master
   instances: 1
   resource_pool: small
   networks:

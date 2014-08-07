@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/jenkins_slave/helpers/ctl_setup.sh 'jenkins_slave'
+
+export LANG=en_US.UTF-8
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+
+    EXECUTORS="<%= p('jenkins_slave.executors') %>"
+
+    if [[ "auto" == "$EXECUTORS" ]]; then
+        EXECUTORS=$(grep -c ^processor /proc/cpuinfo)
+    fi
+
+    # store pid in $PIDFILE
+    echo $$ > $PIDFILE
+
+    exec chpst -u vcap:vcap \
+         /var/vcap/packages/jre/bin/java \
+         <%= p('jenkins_slave.java_options').join(' ') %> \
+         -jar /var/vcap/packages/jenkins-swarm-client/swarm-client.jar \
+         -executors "$EXECUTORS" \
+         -fsroot "$TMPDIR" \
+         <% if_p('jenkins_slave.labels') do | labels | %>-labels "<%= labels.join(' ') %>"<% end %> \
+         -master "<%= p('jenkins_slave.master') %>" \
+         -mode "<%= p('jenkins_slave.mode') %>" \
+         -name "<%= name %>.<%= index %>" \
+         <% if_p('jenkins_slave.username') do | v | %>-username "<%= v %>"<% end %> \
+         <% if_p('jenkins_slave.password') do | v | %>-password "<%= v %>"<% end %> \
+         >>$LOG_DIR/$JOB_NAME.stdout.log \
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: jenkins_slave_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0

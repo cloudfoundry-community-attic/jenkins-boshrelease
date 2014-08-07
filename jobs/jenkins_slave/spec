@@ -1,0 +1,33 @@
+---
+name: jenkins_slave
+packages:
+- jre
+- jenkins-swarm-client
+templates:
+  bin/jenkins_slave_ctl: bin/jenkins_slave_ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  jenkins_slave.master:
+    default: "http://127.0.0.1:80"
+    description: "URL to Jenkins master"
+  jenkins_slave.executors:
+    default: auto
+    description: "Number of executors to run (auto will default to number of processors)"
+  jenkins_slave.labels:
+    default: []
+    description: "Array of labels to assign the slave"
+  jenkins_slave.mode:
+    default: normal
+    description: "The mode controlling how Jenkins allocates jobs to slaves. Can be either 'normal' (utilize this slave as much as possible) or 'exclusive' (leave this machine for tied jobs only)."
+  jenkins_slave.username:
+    default: ~
+    description: "The Jenkins user password"
+  jenkins_slave.password:
+    default: ~
+    description: "The Jenkins username for authentication"
+  jenkins_slave.java_options:
+    default: []
+    description: "An array of additional options to pass to Java when starting the process"

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+set -u
+
+PIDFILE=/var/vcap/sys/run/bugfix_docker_resolvconf/bugfix_docker_resolvconf.pid
+
+case $1 in
+
+  start)
+    RESOLVCONF=$(readlink -f /etc/resolv.conf)
+
+    /var/vcap/jobs/bugfix_docker_resolvconf/bin/rewrite-resolvconf < $RESOLVCONF > $RESOLVCONF.new
+    cp $RESOLVCONF.new $RESOLVCONF
+    rm $RESOLVCONF.new
+
+    # pretend we're init so monit thinks we're still running
+    mkdir -p $(dirname $PIDFILE)
+    echo 1 > $PIDFILE
+
+    ;;
+
+  stop)
+    rm $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: bugfix_docker_resolvconf {start|stop}"
+
+    ;;
+
+esac
+exit 0

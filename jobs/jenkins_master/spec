@@ -5,9 +5,6 @@ packages:
 - jre
 - nginx
 - git
-- cf-cli
-- bosh-cli
-- ruby
 templates:
   bin/jenkins_master_ctl: bin/jenkins_master_ctl
   bin/monit_debugger: bin/monit_debugger
@@ -19,10 +16,14 @@ templates:
   config/mime.types: config/mime.types
 properties:
   jenkins.admin.password:
-    description: Admin user password
+    description: "Admin user password (only configured if defined)"
+    default: ~
   jenkins.server.internal_http_port:
     description: "Internal http port between nginx & jenkins"
     default: 8088
   jenkins.server.ajp13_port:
     description: AJP13 protocal port
     default: 8009
+  jenkins_master.java_options:
+    default: []
+    description: "An array of additional options to pass to Java when starting the process"

@@ -1,4 +1,5 @@
 ---
 name: jre
 files:
-- java/jre-1.6.0_24-x86_64.tar.gz
+# http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html
+- java/jre-7u67-linux-x64.tar.gz

@@ -1,5 +1,0 @@
----
-name: cf-cli
-dependencies: []
-files:
-  - cf-cli/cf-cli_amd64-v6.0.0-bin.gz

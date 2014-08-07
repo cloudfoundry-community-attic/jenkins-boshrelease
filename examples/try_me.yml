@@ -16,7 +16,7 @@
 #
 #     $ bosh deploy
 #
-# For bosh-lite/warden: Now visit http://10.244.1.2/ in your browser.
+# For bosh-lite/warden: Now visit http://10.244.0.22/ in your browser.
 ---
 name: jenkins
 director_uuid: <%= `bosh status | grep UUID | awk '{print $2}'` %>

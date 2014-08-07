@@ -7,9 +7,6 @@ set -u # report the usage of uninitialized variables
 source /var/vcap/jobs/jenkins_master/helpers/ctl_setup.sh 'jenkins_master'
 
 export PATH=/var/vcap/packages/git/bin:$PATH
-export PATH=/var/vcap/packages/cf-cli/bin:$PATH
-export PATH=/var/vcap/packages/bosh-cli/bin:$PATH
-export GEM_PATH=/var/vcap/packages/bosh-cli/vendor/bundle/ruby/1.9.1
 
 export LANG=en_US.UTF-8
 export JENKINS_HOME=/var/vcap/store/jenkins_master
@@ -27,12 +24,18 @@ case $1 in
 
     flags=(
       -Djava.io.tmpdir="$TMPDIR"
+      <%= p('jenkins_master.java_options').join(' ') %>
       -jar $jenkins_war
-      --argumentsRealm.passwd.$ADMIN_USER=$ADMIN_PASSWORD
-      --argumentsRealm.roles.$ADMIN_USER=admin
       --httpPort=$PORT
       --ajp13Port=$AJP13_PORT # unless ssl
     )
+
+    if [[ "" != "$ADMIN_PASSWORD" ]] ; then
+      flags+=(
+        --argumentsRealm.passwd.$ADMIN_USER=$ADMIN_PASSWORD
+        --argumentsRealm.roles.$ADMIN_USER=admin
+      )
+    fi
 
     # if [[ -n "$HTTPS_PORT" && -s "$HTTPS_KEYSTORE_FILE" ]]
     # then
@@ -43,6 +46,17 @@ case $1 in
     #     --ajp13Port="-1"
     #   )
     # fi
+
+    # pre-install the swarm plugin; user must maintain future upgrades
+    if [ ! -f $JENKINS_HOME/plugins/swarm ] ; then
+      if [ ! -e $JENKINS_HOME/plugins ] ; then
+        mkdir -p $JENKINS_HOME/plugins
+        chown vcap:vcap $JENKINS_HOME/plugins
+      fi
+
+      cp /var/vcap/packages/jenkins/plugin-swarm.hpi $JENKINS_HOME/plugins/swarm.hpi
+      chown vcap:vcap $JENKINS_HOME/plugins/swarm.hpi
+    fi
 
     exec chpst -u vcap:vcap $java_binary ${flags[*]} \
          >>$LOG_DIR/$JOB_NAME.stdout.log \

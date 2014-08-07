@@ -1,0 +1,5 @@
+check process bugfix_docker_resolvconf
+  with pidfile /var/vcap/sys/run/bugfix_docker_resolvconf/bugfix_docker_resolvconf.pid
+  start program "/var/vcap/jobs/bugfix_docker_resolvconf/bin/control start"
+  stop program "/var/vcap/jobs/bugfix_docker_resolvconf/bin/control stop"
+  group vcap

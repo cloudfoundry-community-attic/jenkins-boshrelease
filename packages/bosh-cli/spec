@@ -1,7 +1,0 @@
----
-name: bosh-cli
-dependencies:
-  - ruby
-files:
-- bosh_cli/Gemfile
-- bosh_cli/Gemfile.lock
