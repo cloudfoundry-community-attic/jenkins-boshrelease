@@ -8,6 +8,6 @@ set -u # report the usage of uninitialized variables
 cp -a bosh_cli/* ${BOSH_INSTALL_TARGET}
 
 cd ${BOSH_INSTALL_TARGET}
-/var/vcap/packages/ruby/bin/bundle install --deployment --without=development test
+/var/vcap/packages/ruby/bin/bundle install --local --deployment --without=development test
 
 ln -s ${BOSH_INSTALL_TARGET}/vendor/bundle/ruby/1.9.1/bin ${BOSH_INSTALL_TARGET}/bin
