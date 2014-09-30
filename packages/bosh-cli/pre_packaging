@@ -1,0 +1,5 @@
+set -e -x
+
+cd ${BUILD_DIR}/bosh_cli
+
+BUNDLE_WITHOUT=development:test bundle package --all
