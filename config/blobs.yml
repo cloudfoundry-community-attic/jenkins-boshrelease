@@ -43,3 +43,7 @@ cf-cli/cf-cli_amd64-v6.0.0-bin.gz:
   object_id: 617c5abc-3406-42f8-92ea-2a2f914ac799
   sha: 777a214708180d5a2dc380b5828dc0a69556702a
   size: 3386095
+golang/go1.3.3.linux-amd64.tar.gz:
+  object_id: df91053a-813b-47c2-99ec-509c03ecef33
+  sha: 14068fbe349db34b838853a7878621bbd2b24646
+  size: 53204098

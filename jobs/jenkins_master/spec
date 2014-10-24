@@ -8,6 +8,7 @@ packages:
 - cf-cli
 - bosh-cli
 - ruby
+- golang1.3
 templates:
   bin/jenkins_master_ctl: bin/jenkins_master_ctl
   bin/monit_debugger: bin/monit_debugger
