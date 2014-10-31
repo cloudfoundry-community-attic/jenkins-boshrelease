@@ -1,0 +1,58 @@
+---
+packages:
+- name: nginx
+  version: c15d8e6a773eeb9c605ac4fc8103ac553304457a
+  sha1: 5098652aef1cb9eea207b4ceaa0307f785d00e79
+  fingerprint: c15d8e6a773eeb9c605ac4fc8103ac553304457a
+  dependencies: []
+- name: libyaml
+  version: 681bb455c35ef17cabbd41344f924cb61c2bb8e7
+  sha1: 31672f48daa548ebd5bce2e8f985e46150e0b677
+  fingerprint: 681bb455c35ef17cabbd41344f924cb61c2bb8e7
+  dependencies: []
+- name: cf-cli
+  version: 1ba4dd7ca6e8821a3d02d7bff44483a70295996e
+  sha1: ba6002cb2fd0e0ba37ed1ef6bcc9a705b66a9cc3
+  fingerprint: 1ba4dd7ca6e8821a3d02d7bff44483a70295996e
+  dependencies: []
+- name: bosh-cli
+  version: 3da9d59a474e3d3a3d5bee2057b737214f564bca
+  sha1: db67e09afa7dc864b7907e97112dc0e33ae1d19f
+  fingerprint: 3da9d59a474e3d3a3d5bee2057b737214f564bca
+  dependencies:
+  - ruby
+- name: jenkins
+  version: f02cbf78a39fd0b45ce64543a0bd35b6cd3cd769
+  sha1: f4b980156635ab5db54e597056fcebdcda5f085c
+  fingerprint: f02cbf78a39fd0b45ce64543a0bd35b6cd3cd769
+  dependencies: []
+- name: golang1.3
+  version: 2ee4cb537921960ce050b2371b61ef303840107f
+  sha1: f0614822e3a992bdcf09e82e174f75e194dc93a2
+  fingerprint: 2ee4cb537921960ce050b2371b61ef303840107f
+  dependencies: []
+- name: ruby
+  version: dde5b6c7db2368e6c5f6d085a6006b1075546695
+  sha1: adf1bdf055feb9eadfd81014c938bbcf8e38bfcc
+  fingerprint: dde5b6c7db2368e6c5f6d085a6006b1075546695
+  dependencies:
+  - libyaml
+- name: jre
+  version: 4af4b17dd7b14f75cef2f4ad4ea041ba000997fe
+  sha1: 7072ec4a1caecbe2fc0faa09700a8eca5ef56ada
+  fingerprint: 4af4b17dd7b14f75cef2f4ad4ea041ba000997fe
+  dependencies: []
+- name: git
+  version: 8b66a1a1cdf9b100b2c3b48e8fb0b305c7a4c3c8
+  sha1: a43a13eeb52f7ed0262cddc4e9a9d65a6f74b3b5
+  fingerprint: 8b66a1a1cdf9b100b2c3b48e8fb0b305c7a4c3c8
+  dependencies: []
+jobs:
+- name: jenkins_master
+  version: c5b6d21623c819bb775a622980df8bb4b3ed0d31
+  fingerprint: c5b6d21623c819bb775a622980df8bb4b3ed0d31
+  sha1: 0042530c392fea0da9bc9c545234f75d3494bb49
+commit_hash: 47a705ed
+uncommitted_changes: true
+name: jenkins
+version: '4'
