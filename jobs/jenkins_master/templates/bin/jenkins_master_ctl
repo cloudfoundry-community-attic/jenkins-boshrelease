@@ -9,6 +9,8 @@ source /var/vcap/jobs/jenkins_master/helpers/ctl_setup.sh 'jenkins_master'
 export PATH=/var/vcap/packages/git/bin:$PATH
 export PATH=/var/vcap/packages/cf-cli/bin:$PATH
 export PATH=/var/vcap/packages/bosh-cli/bin:$PATH
+export GOROOT=$(readlink -nf /var/vcap/packages/golang1.3)
+export PATH=$GOROOT/bin:$PATH
 export GEM_PATH=/var/vcap/packages/bosh-cli/vendor/bundle/ruby/1.9.1
 
 export LANG=en_US.UTF-8
