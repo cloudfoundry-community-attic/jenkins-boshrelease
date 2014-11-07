@@ -2,4 +2,4 @@
 name: jenkins
 dependencies: [] # no compile dependencies
 files:
-- jenkins/jenkins-1.532.1.war
+- jenkins/jenkins-1.580.1.war
