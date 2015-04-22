@@ -43,7 +43,7 @@ cf-cli/cf-cli_amd64-v6.6.2-bin.gz:
   object_id: 727485de-57ba-40ae-83f2-41a62ad0e946
   sha: 942121bda74b12712d311b381e68c6b8a8aaef75
   size: 4618580
-jenkins/jenkins-1.580.1.war:
-  object_id: 6f0eb046-2e13-4188-9994-e5550579be98
-  sha: b9320b2c1ea28247f035bbf0f313948e8a735b78
-  size: 68022189
+jenkins/jenkins-1.596.2.war:
+  object_id: 9edd699b-b7ac-4c23-bcc3-ad5048e60b53
+  sha: 96ee85602a41d68c164fb54d4796be5d1d9cc5d0
+  size: 68553541
