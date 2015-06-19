@@ -47,3 +47,15 @@ jenkins/jenkins-1.596.2.war:
   object_id: 9edd699b-b7ac-4c23-bcc3-ad5048e60b53
   sha: 96ee85602a41d68c164fb54d4796be5d1d9cc5d0
   size: 68553541
+libyaml/yaml-0.1.6.tar.gz:
+  object_id: fff49837-d0e6-4816-a645-53b33aba78d4
+  sha: f3d404e11bec3c4efcddfd14c42d46f1aabe0b5d
+  size: 503012
+ruby/bundler-1.10.4.gem:
+  object_id: 0872afe9-1b37-40c6-bbea-01e8deafb207
+  sha: 63fe977c7a9ed8d578fc85e9922e5e2d1bc9e116
+  size: 250368
+ruby/ruby-2.2.2.tar.gz:
+  object_id: dcfa90e4-0117-445f-aaac-418dab54b241
+  sha: 29c51a17639d921b1ae51cd80a9d7584f67d5e1c
+  size: 16613636

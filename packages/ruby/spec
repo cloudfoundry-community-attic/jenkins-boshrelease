@@ -3,6 +3,5 @@ name: ruby
 dependencies:
   - libyaml
 files:
-  - ruby/ruby-1.9.3-p484.tar.gz
-  - ruby/rubygems-1.8.24.tgz
-  - ruby/bundler-1.2.1.gem
+  - ruby/ruby-2.2.2.tar.gz
+  - ruby/bundler-1.10.4.gem

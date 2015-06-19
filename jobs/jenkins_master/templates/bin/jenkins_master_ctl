@@ -11,7 +11,7 @@ export PATH=/var/vcap/packages/cf-cli/bin:$PATH
 export PATH=/var/vcap/packages/bosh-cli/bin:$PATH
 export GOROOT=$(readlink -nf /var/vcap/packages/golang1.3)
 export PATH=$GOROOT/bin:$PATH
-export GEM_PATH=/var/vcap/packages/bosh-cli/vendor/bundle/ruby/1.9.1
+export GEM_PATH=/var/vcap/packages/bosh-cli/vendor/bundle/ruby/2.2.0
 
 export LANG=en_US.UTF-8
 export JENKINS_HOME=/var/vcap/store/jenkins_master

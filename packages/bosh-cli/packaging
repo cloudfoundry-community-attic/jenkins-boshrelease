@@ -10,4 +10,4 @@ cp -a bosh_cli/* ${BOSH_INSTALL_TARGET}
 cd ${BOSH_INSTALL_TARGET}
 /var/vcap/packages/ruby/bin/bundle install --local --deployment --without=development test
 
-ln -s ${BOSH_INSTALL_TARGET}/vendor/bundle/ruby/1.9.1/bin ${BOSH_INSTALL_TARGET}/bin
+ln -s ${BOSH_INSTALL_TARGET}/vendor/bundle/ruby/2.2.0/bin ${BOSH_INSTALL_TARGET}/bin
