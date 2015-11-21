@@ -13,7 +13,7 @@ bosh target BOSH_URL
 bosh login
 git clone https://github.com/cloudfoundry-community/jenkins-boshrelease.git
 cd jenkins-boshrelease
-bosh upload release releases/jenkins-3.yml
+bosh upload release releases/jenkins/jenkins-3.yml
 ```
 
 You now need a deployment file. This is different for each use case.
